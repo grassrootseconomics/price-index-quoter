@@ -75,8 +75,10 @@ contract PriceIndexQuoter {
         }
     }
 
-    function determineOutput(uint256 inputValue, uint256 inExchangeRate, uint256 outExchangeRate) public pure returns (uint256) {
-        return (inputValue * inExchangeRate)/outExchangeRate;
+    // When testing with forge convert to a public function
+    // https://github.com/foundry-rs/foundry/issues/1040
+    function determineOutput(uint256 inputValue, uint256 inExchangeRate, uint256 outExchangeRate) internal pure returns (uint256) {
+        return (inputValue * inExchangeRate) / outExchangeRate;
     }
 
     // Implements EIP173
